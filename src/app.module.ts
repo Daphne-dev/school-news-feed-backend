@@ -8,12 +8,18 @@ import {
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 
+import { AuthModule } from './auth/auth.module';
 import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 import { ERROR_CODE } from './common/filters/error.constant';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true, envFilePath: `.env.${process.env.NODE_ENV}` })],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: `.env.${process.env.NODE_ENV}` }),
+    AuthModule,
+    UserModule,
+  ],
   providers: [
     {
       provide: APP_PIPE,
