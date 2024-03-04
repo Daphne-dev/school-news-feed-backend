@@ -1,0 +1,78 @@
+datasource db {
+  provider = "postgresql" 
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id             Int             @id @default(autoincrement())
+  name           String 
+  email          String          @unique
+  password       String
+  role           UserRole        @default(STUDENT)
+  schoolAdmins   SchoolAdmin[]  
+  subscriptions  Subscription[]
+  newsFeeds      NewsFeed[]
+  createdAt      DateTime        @default(now())
+  updatedAt       DateTime       @updatedAt
+  deletedAt       DateTime?
+}
+
+model School {
+  id              Int            @id @default(autoincrement())
+  name            String
+  region          String
+  schoolAdmins    SchoolAdmin[]
+  news            News[]
+  subscriptions   Subscription[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  deletedAt       DateTime?
+}
+
+model SchoolAdmin {
+  id        Int    @id @default(autoincrement())
+  userId    Int
+  schoolId  Int
+  user      User   @relation(fields: [userId], references: [id])
+  school    School @relation(fields: [schoolId], references: [id])
+}
+
+model News {
+  id        Int         @id @default(autoincrement())
+  title     String
+  content   String
+  schoolId  Int
+  school    School      @relation(fields: [schoolId], references: [id])
+  newsFeed  NewsFeed[] 
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  deletedAt DateTime?
+}
+
+model Subscription {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  schoolId  Int
+  user      User     @relation(fields: [userId], references: [id])
+  school    School   @relation(fields: [schoolId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model NewsFeed {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  newsId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  news      News     @relation(fields: [newsId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+enum UserRole {
+  ADMIN
+  STUDENT
+}
