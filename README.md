@@ -25,7 +25,7 @@ pnpm run prisma:push:local
 http://localhost:3000/api
 ``` 
 
-4. 확인 절차
+### 4. 확인 절차
 주로 jwt가 필요한 api의 경우 회원가입 및 로그인을 통해 jwt를 획득해서 테스트 할 수 있습니다.
 
 
