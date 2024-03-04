@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 import { ERROR_CODE } from './common/filters/error.constant';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { NewsModule } from './modules/news/news.module';
 import { SchoolModule } from './modules/schools/schools.module';
 import { UserModule } from './modules/user/user.module';
 
@@ -21,6 +22,7 @@ import { UserModule } from './modules/user/user.module';
     AuthModule,
     UserModule,
     SchoolModule,
+    NewsModule,
   ],
   providers: [
     {
