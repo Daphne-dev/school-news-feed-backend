@@ -19,7 +19,7 @@ import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, envFilePath: `.env.${process.env.NODE_ENV}` }),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: `./environments/.env.${process.env.NODE_ENV}` }),
     AuthModule,
     UserModule,
     SchoolModule,

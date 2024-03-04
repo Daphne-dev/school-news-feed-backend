@@ -19,8 +19,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma:generate": "npx prisma generate --schema=./prisma/schema.prisma",
-    "prisma:push:local": "dotenv -e .env.local -- npx prisma db push --schema=./prisma/schema.prisma",
-    "prisma:migrate:local": "dotenv -e .env.local -- npx prisma migrate dev --schema=./prisma/schema.prisma"
+    "prisma:push:local": "dotenv -e environments/.env.local -- npx prisma db push --schema=./prisma/schema.prisma",
+    "prisma:migrate:local": "dotenv -e environments/.env.local -- npx prisma migrate dev --schema=./prisma/schema.prisma"
   },
   "dependencies": {
     "@nestjs-modules/ioredis": "^2.0.2",
@@ -37,6 +37,7 @@
     "dayjs": "^1.11.10",
     "helmet": "^7.1.0",
     "ioredis": "^5.3.2",
+    "jest-mock-extended": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
