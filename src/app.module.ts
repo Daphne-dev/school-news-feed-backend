@@ -14,6 +14,7 @@ import { ERROR_CODE } from './common/filters/error.constant';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { NewsModule } from './modules/news/news.module';
 import { SchoolModule } from './modules/schools/schools.module';
+import { SubscriptionsModule } from './modules/subscriptions/subscriptions.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
@@ -23,6 +24,7 @@ import { UserModule } from './modules/user/user.module';
     UserModule,
     SchoolModule,
     NewsModule,
+    SubscriptionsModule,
   ],
   providers: [
     {
