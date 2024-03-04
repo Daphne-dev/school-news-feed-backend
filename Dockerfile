@@ -17,8 +17,13 @@ COPY package.json pnpm-lock.yaml ./
 # 앱 의존성 설치
 RUN pnpm install --frozen-lockfile
 
-# 전체 소스 코드 복사 및 빌드
+# 전체 소스 코드 복사
 COPY . .
+
+# Prisma 클라이언트 생성
+RUN pnpm run prisma:generate
+
+# 빌드
 RUN pnpm run build
 
 # 최종 이미지
