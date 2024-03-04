@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 import { ERROR_CODE } from './common/filters/error.constant';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { SchoolModule } from './modules/schools/schools.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
@@ -19,6 +20,7 @@ import { UserModule } from './modules/user/user.module';
     ConfigModule.forRoot({ isGlobal: true, envFilePath: `.env.${process.env.NODE_ENV}` }),
     AuthModule,
     UserModule,
+    SchoolModule,
   ],
   providers: [
     {
