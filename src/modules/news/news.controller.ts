@@ -93,8 +93,8 @@ export class NewsController {
   }
 
   @ApiOperation({
-    summary: '구독 중인 학교 소식 조회',
-    description: '구독 중인 학교 소식을 조회합니다.',
+    summary: '구독 중인 학교 소식 목록 조회',
+    description: '구독 중인 학교 소식 목록을 조회합니다.',
   })
   @GenerateSwaggerDocumentByErrorCode([ERROR_CODE.ACCESS_DENIED])
   @ApiBearerAuth('jwt')
