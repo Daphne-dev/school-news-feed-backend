@@ -1,17 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose } from 'class-transformer';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateNewsRequestBodyDto {
   @ApiProperty({ description: '제목', example: '수정된 학교 소식입니다.' })
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  title: string;
+  title?: string;
 
   @ApiProperty({ description: '내용', example: '수정된 학교 소식 예시입니다.' })
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  content: string;
+  content?: string;
 }
 
 @Exclude()

@@ -17,10 +17,10 @@ export interface UpdateNewsParam {
   newsId: number;
 
   /** 제목 */
-  title: string;
+  title?: string;
 
   /** 내용 */
-  content: string;
+  content?: string;
 
   /** 학교 ID */
   schoolId: number;
